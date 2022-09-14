@@ -26,7 +26,7 @@ class CategorieController extends AbstractController
      */
     public function afficheCategorie(Categorie $categorie): Response
     {
-        return $this->render('categorie/listeCategories.html.twig', [
+        return $this->render('categorie/ficheCategorie.html.twig', [
             'laCategorie' => $categorie,
         ]);
     }
