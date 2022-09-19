@@ -17,24 +17,31 @@ class ContactsFixtures extends Fixture
 
         $faker=Factory::create("fr_FR");
 
-        $categorie1 =new Categorie();
-        $categorie1->setLibelle("Privé")
+        $categories=[];
+
+        $categorie =new Categorie();
+        $categorie->setLibelle("Privé")
                    ->setImage("http://lorempixel.com/400/200/people")
                    ->setDescription($faker->sentence(50));
-        $manager->persist($categorie1);
+        $manager->persist($categorie);
 
-                   $categorie2 =new Categorie();
-        $categorie2->setLibelle("Sport")
+        $categories[] = $categorie;
+
+                   $categorie =new Categorie();
+        $categorie->setLibelle("Sport")
                    ->setImage("http://lorempixel.com/400/200/sports")
                    ->setDescription($faker->sentence(50));
-        $manager->persist($categorie2);
+        $manager->persist($categorie);
 
+        $categories[] = $categorie;
 
-                   $categorie3 =new Categorie();
-        $categorie3->setLibelle("Professionnel")
+                   $categorie =new Categorie();
+        $categorie->setLibelle("Professionnel")
                    ->setImage("http://lorempixel.com/400/200/business")
                    ->setDescription($faker->sentence(50));
-        $manager->persist($categorie3);
+        $manager->persist($categorie);
+        $categories[] = $categorie;
+
 
         $genres=["male","female"];
 
@@ -57,6 +64,7 @@ class ContactsFixtures extends Fixture
                     ->setVille($faker->city())   
                     ->setMail($faker->email())
                     ->setSexe($sexe)
+                    ->setCategorie($categories[mt_rand(0,2)])
                     ->setAvatar("https://randomuser.me/api/portraits/".$type."/".$i.".jpg");
                     $manager->persist($contact);
         }

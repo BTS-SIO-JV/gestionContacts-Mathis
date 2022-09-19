@@ -24,6 +24,7 @@
                     <span class="badge badge-info">femme</span>
                 {% endif %}
                 </li>
+                <li class="list-group-item"><a href="{{path('ficheCategorie', {'id' : leContact.categorie.id})}}+">{{leContact.categorie.libelle}}</a></li>
                 
             </ul>
             <div class="card-body">
@@ -32,6 +33,6 @@
         </div>
     </div>
     {% endfor %}
-
+</div>
 {% endblock %}
 
