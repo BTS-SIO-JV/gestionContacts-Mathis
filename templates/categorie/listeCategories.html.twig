@@ -10,9 +10,7 @@
     {% for laCategorie in lesCategories %}
     <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3 mx-auto">
         <div class="card mb-3">
-            <h4 class="card-header">
-            {{laCategorie.libelle}}
-            </h4>
+            <h4 class="card-header">{{laCategorie.libelle}}</h4>
             <img class="avatar mx-auto my-2" style="height: auto; max-width: 200px; display: block;" src="{{asset(laCategorie.image)}}" alt="Card image">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{laCategorie.description}}</li>
@@ -22,6 +20,8 @@
             <div class="card-body">
                 <a href="{{path('ficheCategorie', {'id' : laCategorie.id})}}" class="btn btn-success btn-block text-center">More info</a>
             </div>
+            <h5 class="card-header"><span class="badge badge-warning">{{laCategorie.contacts|length}} contacts</span></h5>
+
         </div>
     </div>
     {% endfor %}
